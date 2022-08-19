@@ -13,4 +13,4 @@ RUN go build -o .
 
 EXPOSE 8080
 
-CMD [ "./alert" ]
+CMD [ "./operator" ]
