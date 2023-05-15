@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dev-rolebinding
+  namespace: default
+subjects:
+- kind: User
+  name: dev-user
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: dev-role
+  apiGroup: rbac.authorization.k8s.io
+  
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: prod-rolebinding
+  namespace: default
+subjects:
+- kind: Group
+  name: prod-group
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: prod-role
+  apiGroup: rbac.authorization.k8s.io

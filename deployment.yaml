@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-montu
+  name: go-kiem
 spec:
   selector:
     matchLabels:
-      app: go-montu
+      app: go-kiem
   template:
     metadata:
       labels:
-        app: go-montu
-      annotations:
-        sidecar.opentelemetry.io/inject: "true"
+        app: go-kiem
     spec:
       containers:
-        - name: go-montu
-          image: 
+        - name: go-kiem
+          image: gladium08/kiem:json
           imagePullPolicy: Always
           ports:
           - containerPort: 8080
@@ -26,4 +24,4 @@ spec:
             limits:
                 memory: "248Mi"
                 cpu: "500m"
-      serviceAccount: montu-service-account
+      serviceAccount: kiem-service-account

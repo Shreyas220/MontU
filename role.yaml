@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: dev-role
+  namespace: default
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+- apiGroups: ["extensions"]
+  resources: ["deployments"]
+  verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+  
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: prod-role
+  namespace: default
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+- apiGroups: ["extensions"]
+  resources: ["deployments"]
+  verbs: ["get", "watch", "list", "create", "update", "patch"]
